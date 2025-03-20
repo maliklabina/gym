@@ -1,1 +1,1 @@
-# Mini Projest Gym Management 
+# Mini Project Gym Management 

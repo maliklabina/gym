@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <body>
+    <h2>Login</h2>
 
-<h2>Login</h2>
+    <form id="redirectForm">
+      <label for="fname">First name:</label><br>
+      <input type="text" id="fname" name="fname" value="John"><br>
 
-<form action="/action_page.php">
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname" value="John"><br>
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname" value="Doe"><br><br>
-  <input type="submit" value="Submit">
-</form> 
+      <label for="lname">Last name:</label><br>
+      <input type="text" id="lname" name="lname" value="Doe"><br><br>
 
+      <button type="submit">Go to Gym</button>
+    </form>
 
-</body>
+    <script>
+      document.getElementById("redirectForm").addEventListener("submit", function (e) {
+        e.preventDefault(); // prevent form submission
+        window.location.href = "http://localhost:5174"; // redirect to your gym website
+      });
+    </script>
+  </body>
 </html>
-

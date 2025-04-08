@@ -1,23 +1,132 @@
 <!DOCTYPE html>
-<html>
-  <body>
-    <h2>Login</h2>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gym Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
+    body {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background-color: #111;
+    }
+
+    .form-container {
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      padding: 40px 30px;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      color: white;
+      animation: fadeIn 1s ease forwards;
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      font-weight: 600;
+      color: #ffffff;
+      text-shadow: 0 0 8px #000;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+      color: #ddd;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: #222;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      box-shadow: 0 0 5px #ff8800;
+      background-color: #2d2d2d;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #ff8800, #ff5500);
+      border: none;
+      border-radius: 8px;
+      color: black;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 136, 0, 0.6);
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Gym Login</h2>
     <form id="redirectForm">
-      <label for="fname">First name:</label><br>
-      <input type="text" id="fname" name="fname" value="John"><br>
+      <label for="fname">First Name:</label>
+      <input type="text" id="fname" name="fname" value="John" required>
 
-      <label for="lname">Last name:</label><br>
-      <input type="text" id="lname" name="lname" value="Doe"><br><br>
+      <label for="lname">Last Name:</label>
+      <input type="text" id="lname" name="lname" value="Doe" required>
 
-      <button type="submit">Go to Gym</button>
+      <button type="submit" id="submitBtn">Go to Gym</button>
     </form>
+  </div>
 
-    <script>
-      document.getElementById("redirectForm").addEventListener("submit", function (e) {
-        e.preventDefault(); // prevent form submission
-        window.location.href = "http://localhost:5174"; // redirect to your gym website
-      });
-    </script>
-  </body>
+  <script>
+    document.getElementById("redirectForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const btn = document.getElementById("submitBtn");
+      btn.innerText = "Loading...";
+      btn.disabled = true;
+      btn.style.background = "#333";
+
+      setTimeout(() => {
+        window.location.href = "http://localhost:5174"; // Replace with your gym portal
+      }, 1000);
+    });
+  </script>
+
+</body>
 </html>
